@@ -1,0 +1,9 @@
+{
+	"name": "AssignmentdevDF",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "171fc406-4748-490e-a3f8-5ec09c53c271",
+		"tenantId": "da464968-10f5-4b7b-8217-d6ab822e3949"
+	}
+}
