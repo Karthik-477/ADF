@@ -1,0 +1,9 @@
+{
+	"name": "adfassignment111",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e6a66672-d0f8-4094-a4ac-2ffe0170ceaf",
+		"tenantId": "da464968-10f5-4b7b-8217-d6ab822e3949"
+	}
+}
