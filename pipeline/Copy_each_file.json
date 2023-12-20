@@ -1,5 +1,5 @@
 {
-	"name": "pipeline2",
+	"name": "Copy_each_file",
 	"properties": {
 		"activities": [
 			{
@@ -212,6 +212,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
