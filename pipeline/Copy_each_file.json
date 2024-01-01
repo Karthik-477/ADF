@@ -39,6 +39,14 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
+										"modifiedDatetimeStart": {
+											"value": "@item().runtime_params",
+											"type": "Expression"
+										},
+										"modifiedDatetimeEnd": {
+											"value": "@activity('Get Metadata1').output.lastModified",
+											"type": "Expression"
+										},
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -208,7 +216,8 @@
 						}
 					},
 					"fieldList": [
-						"childItems"
+						"childItems",
+						"lastModified"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
