@@ -205,7 +205,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataflow": {
-									"referenceName": "dataflow1",
+									"referenceName": "df_scd_type2_blob_to_db",
 									"type": "DataFlowReference",
 									"datasetParameters": {
 										"source1": {
