@@ -24,6 +24,8 @@
 						{
 							"name": "Copy data1",
 							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -118,7 +120,7 @@
 							"type": "Lookup",
 							"dependsOn": [
 								{
-									"activity": "Copy data1",
+									"activity": "Data flow1",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -156,7 +158,7 @@
 							"type": "Lookup",
 							"dependsOn": [
 								{
-									"activity": "Copy data1",
+									"activity": "Data flow1",
 									"dependencyConditions": [
 										"Failed"
 									]
@@ -187,6 +189,42 @@
 										"TableName": "control_file_load"
 									}
 								}
+							}
+						},
+						{
+							"name": "Data flow1",
+							"type": "ExecuteDataFlow",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataflow": {
+									"referenceName": "dataflow1",
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"source1": {
+											"FolderaName": {
+												"value": "@pipeline().parameters.SourceTarget",
+												"type": "Expression"
+											},
+											"FileName": {
+												"value": "@item().name",
+												"type": "Expression"
+											}
+										}
+									}
+								},
+								"compute": {
+									"coreCount": 8,
+									"computeType": "General"
+								},
+								"traceLevel": "Fine"
 							}
 						}
 					]
