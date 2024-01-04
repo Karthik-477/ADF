@@ -70,7 +70,7 @@
 				"source1 derive(source_md5 = md5(first_name,last_name,email,gender,ip_address)) ~> derivedColumn2",
 				"derivedColumn2, derivedColumn1 exists(source_md5 == target_md5,",
 				"     negate:true,",
-				"     broadcast: 'auto')~> exists1",
+				"     broadcast: 'left')~> exists1",
 				"exists1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
@@ -82,12 +82,12 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
-				"          id = source1@id,",
-				"          first_name = source1@first_name,",
-				"          last_name = source1@last_name,",
-				"          email = source1@email,",
-				"          gender = source1@gender,",
-				"          ip_address = source1@ip_address",
+				"          id,",
+				"          first_name,",
+				"          last_name,",
+				"          email,",
+				"          gender,",
+				"          ip_address",
 				"     )) ~> sink1"
 			]
 		}
