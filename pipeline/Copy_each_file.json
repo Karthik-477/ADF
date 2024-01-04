@@ -217,6 +217,58 @@
 												"value": "@item().name",
 												"type": "Expression"
 											}
+										},
+										"source2": {
+											"ServerName": {
+												"value": "@pipeline().parameters.ServerName",
+												"type": "Expression"
+											},
+											"DbName": {
+												"value": "@pipeline().parameters.DbName",
+												"type": "Expression"
+											},
+											"TableName": {
+												"value": "@pipeline().parameters.TableName",
+												"type": "Expression"
+											},
+											"TableSchema": {
+												"value": "@pipeline().parameters.DbSchema",
+												"type": "Expression"
+											},
+											"LoginID": {
+												"value": "@pipeline().parameters.LoginID",
+												"type": "Expression"
+											},
+											"Password": {
+												"value": "@pipeline().parameters.Password",
+												"type": "Expression"
+											}
+										},
+										"sink1": {
+											"ServerName": {
+												"value": "@pipeline().parameters.ServerName",
+												"type": "Expression"
+											},
+											"DbName": {
+												"value": "@pipeline().parameters.DbName",
+												"type": "Expression"
+											},
+											"TableName": {
+												"value": "@pipeline().parameters.TableName",
+												"type": "Expression"
+											},
+											"TableSchema": {
+												"value": "@pipeline().parameters.DbSchema",
+												"type": "Expression"
+											},
+											"LoginID": {
+												"value": "@pipeline().parameters.LoginID",
+												"type": "Expression"
+											},
+											"Password": {
+												"value": "@pipeline().parameters.Password",
+												"type": "Expression"
+											}
 										}
 									}
 								},

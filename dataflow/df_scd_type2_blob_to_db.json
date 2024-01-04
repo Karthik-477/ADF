@@ -36,7 +36,7 @@
 					"name": "derivedColumn2"
 				},
 				{
-					"name": "lookup1"
+					"name": "exists1"
 				}
 			],
 			"scriptLines": [
@@ -64,13 +64,14 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> source2",
+				"     format: 'table',",
+				"     partitionBy('hash', 1)) ~> source2",
 				"source2 derive(target_md5 = md5(first_name,last_name,email,gender,ip_address)) ~> derivedColumn1",
 				"source1 derive(source_md5 = md5(first_name,last_name,email,gender,ip_address)) ~> derivedColumn2",
-				"derivedColumn2, derivedColumn1 lookup(source_md5 != target_md5,",
-				"     multiple: true,",
-				"     broadcast: 'left')~> lookup1",
-				"lookup1 sink(allowSchemaDrift: true,",
+				"derivedColumn2, derivedColumn1 exists(source_md5 == target_md5,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
+				"exists1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
